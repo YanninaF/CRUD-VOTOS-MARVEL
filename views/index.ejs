@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas de Marvel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/styles.css"> 
+<body class="bg-gray-100">
+
+    <div class="header">
+        <img src="./images/avengers.png" alt="Ironman Icon" class="icon">
+        <h1>Películas de Marvel</h1>
+        <img src="./images/logan.png" alt="Logan" class="icon">
+    
+    </div>
+    
+        
+        <form action="/marvel" method="POST" class="mb-8">
+            <div class="flex space-x-2">
+                <input type="text" name="pelicula" placeholder="Nombre de la Pelicula" required class="flex-1 p-2 border border-gray-300 rounded">
+                <input type="text" name="enlace" placeholder="Enlace" required class="flex-1 p-2 border border-gray-300 rounded">
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded">Agregar Película</button>
+            </div>
+        </form>
+
+        <ul class="space-y-4">
+            <% peliculas.forEach(pelicula => { %>
+                <li class="bg-white shadow-md rounded p-4 flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-semibold"><%= pelicula.pelicula %></h3>
+                        <p class="text-gray-600">Votos: <%= pelicula.votos %></p>
+                        <a href="<%= pelicula.enlace %>" target="_blank" class="text-blue-500 hover:underline">Ver Enlace</a>
+                    </div>
+                    <div class="flex space-x-2">
+                        <form action="/marvel/<%= pelicula.id_marvel %>/vote" method="POST">
+                            <button type="submit" class="bg-green-500 text-white p-2 rounded">Votar</button>
+                        </form>
+                        <form action="/marvel/<%= pelicula.id_marvel %>?_method=PUT" method="POST">
+                            <input type="text" name="pelicula" value="<%= pelicula.pelicula %>" required class="border border-gray-300 rounded p-1">
+                            <input type="text" name="enlace" value="<%= pelicula.enlace %>" required class="border border-gray-300 rounded p-1">
+                            <button type="submit" class="bg-yellow-500 text-white p-2 rounded">Actualizar</button>
+                        </form>
+                        <form action="/marvel/<%= pelicula.id_marvel %>?_method=DELETE" method="POST">
+                            <button type="submit" class="bg-red-500 text-white p-2 rounded">Eliminar</button>
+                        </form>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+
+</body>
+</html>
+<!-- Muestra las películas con enlaces, votos, y botones para votar, editar o eliminar. -->
