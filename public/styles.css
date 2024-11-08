@@ -1,0 +1,50 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('./images/co.jpg'); /* Ruta a la imagen */
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la ventana */
+    
+}
+
+.container {
+   
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #4A5568; /* Gray-700 */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el título en la página */
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.header h1 {
+    font-size: 2em;
+    color: rgb(250, 245, 245);
+}
+
+.header .icon {
+    width: 70px;
+    height: auto;
+
+}
+
+.header h1 {
+    font-family: 'Bangers', sans-serif;
+    font-size: 5.9em;
+    color: #ff0000; /* Color rojo para el estilo de Marvel */
+    text-shadow: 4px 4px #000; /* Efecto de sombra */
+}
+
